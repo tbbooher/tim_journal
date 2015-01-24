@@ -1,0 +1,69 @@
+%h1 Listing journal_entries
+
+%table
+  %thead
+    %tr
+      %th Entry date
+      %th Description
+      %th Purity
+      %th Lack of discipline
+      %th Fitness
+      %th Devotional
+      %th Chrissy
+      %th Relational
+      %th Discipline
+      %th Facepicking
+      %th Stress
+      %th Sick
+      %th Flossed
+      %th Workout
+      %th Health statement
+      %th To do
+      %th Memory verse
+      %th Friends in focus
+      %th Problem of the day
+      %th Problem attempted
+      %th Problem solved
+      %th Created at
+      %th Updated at
+      %th Friends
+      %th Workout done
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @journal_entries.each do |journal_entry|
+      %tr
+        %td= journal_entry.entry_date
+        %td= journal_entry.description
+        %td= journal_entry.purity
+        %td= journal_entry.lack_of_discipline
+        %td= journal_entry.fitness
+        %td= journal_entry.devotional
+        %td= journal_entry.chrissy
+        %td= journal_entry.relational
+        %td= journal_entry.discipline
+        %td= journal_entry.facepicking
+        %td= journal_entry.stress
+        %td= journal_entry.sick
+        %td= journal_entry.flossed
+        %td= journal_entry.workout
+        %td= journal_entry.health_statement
+        %td= journal_entry.to_do
+        %td= journal_entry.memory_verse
+        %td= journal_entry.friends_in_focus
+        %td= journal_entry.problem_of_the_day
+        %td= journal_entry.problem_attempted
+        %td= journal_entry.problem_solved
+        %td= journal_entry.created_at
+        %td= journal_entry.updated_at
+        %td= journal_entry.friends
+        %td= journal_entry.workout_done
+        %td= link_to 'Show', journal_entry
+        %td= link_to 'Edit', edit_journal_entry_path(journal_entry)
+        %td= link_to 'Destroy', journal_entry, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Journal entry', new_journal_entry_path

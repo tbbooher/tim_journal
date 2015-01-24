@@ -1,0 +1,81 @@
+%p#notice= notice
+
+%p
+  %b Entry date:
+  = @journal_entry.entry_date
+%p
+  %b Description:
+  = @journal_entry.description
+%p
+  %b Purity:
+  = @journal_entry.purity
+%p
+  %b Lack of discipline:
+  = @journal_entry.lack_of_discipline
+%p
+  %b Fitness:
+  = @journal_entry.fitness
+%p
+  %b Devotional:
+  = @journal_entry.devotional
+%p
+  %b Chrissy:
+  = @journal_entry.chrissy
+%p
+  %b Relational:
+  = @journal_entry.relational
+%p
+  %b Discipline:
+  = @journal_entry.discipline
+%p
+  %b Facepicking:
+  = @journal_entry.facepicking
+%p
+  %b Stress:
+  = @journal_entry.stress
+%p
+  %b Sick:
+  = @journal_entry.sick
+%p
+  %b Flossed:
+  = @journal_entry.flossed
+%p
+  %b Workout:
+  = @journal_entry.workout
+%p
+  %b Health statement:
+  = @journal_entry.health_statement
+%p
+  %b To do:
+  = @journal_entry.to_do
+%p
+  %b Memory verse:
+  = @journal_entry.memory_verse
+%p
+  %b Friends in focus:
+  = @journal_entry.friends_in_focus
+%p
+  %b Problem of the day:
+  = @journal_entry.problem_of_the_day
+%p
+  %b Problem attempted:
+  = @journal_entry.problem_attempted
+%p
+  %b Problem solved:
+  = @journal_entry.problem_solved
+%p
+  %b Created at:
+  = @journal_entry.created_at
+%p
+  %b Updated at:
+  = @journal_entry.updated_at
+%p
+  %b Friends:
+  = @journal_entry.friends
+%p
+  %b Workout done:
+  = @journal_entry.workout_done
+
+= link_to 'Edit', edit_journal_entry_path(@journal_entry)
+\|
+= link_to 'Back', journal_entries_path
