@@ -1,32 +1,27 @@
-= simple_form_for(@journal_entry) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :entry_date
-    = f.input :description
-    = f.input :purity
-    = f.input :lack_of_discipline
-    = f.input :fitness
-    = f.input :devotional
-    = f.input :chrissy
-    = f.input :relational
-    = f.input :discipline
-    = f.input :facepicking
-    = f.input :stress
-    = f.input :sick
-    = f.input :flossed
-    = f.input :workout
-    = f.input :health_statement
-    = f.input :to_do
-    = f.input :memory_verse
-    = f.input :friends_in_focus
-    = f.input :problem_of_the_day
-    = f.input :problem_attempted
-    = f.input :problem_solved
-    = f.input :created_at
-    = f.input :updated_at
-    = f.input :friends
-    = f.input :workout_done
+= simple_form_for @journal_entry, :html => {class: 'form-horizontal', id: 'journal_entry_form'} do |f|
+  = f.input :entry_date, as: :date, hint: ''
+  = f.input :description, as: :text
+  = f.input :memory_verse, as: :text
+  = f.input :purity, as: :range, input_html: {min: 1, max: 5, step: 0.25}, label: "Purity (high is pure)"
+  = f.input :fitness, as: :range, input_html: {min: 1, max: 5, step: 0.25}
+  = f.input :devotional, as: :range, input_html: {min: 1, max: 5, step: 0.25}
+  = f.input :chrissy, as: :range, input_html: {min: 1, max: 5, step: 0.25}
+  = f.input :relational, as: :range, input_html: {min: 1, max: 5, step: 0.25}
+  = f.input :discipline, as: :range, input_html: {min: 1, max: 5, step: 0.25}
+  = f.input :stress, as: :range, input_html: {min: 1, max: 5, step: 0.25}
+  = f.input :facepicking, as: :range, input_html: {min: 1, max: 5, step: 0.25}, label: "Facepicking (high is good)"
+  = f.input :friends_in_focus  
+  = f.input :health_statement, as: :string, input_html: {style: 'width:80%;'}
+  = f.input :lack_of_discipline, as: :boolean
+  = f.input :sick, as: :boolean
+  = f.input :flossed, as: :boolean
+  = f.input :workout, as: :boolean
+  = f.input :problem_attempted, as: :boolean
+  = f.input :problem_solved, as: :boolean  
+  = f.input :workout_done, as: :text, input_html: {style: 'height:100px;'}
+  = f.input :problem_of_the_day, as: :text, label: "Technical Work Done", input_html: {style: 'height:100px;'}
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-primary'
+    = f.button :submit, 'save', class: 'btn', id: 'update-button', type: 'button'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), journal_entries_path, :class => 'btn'
