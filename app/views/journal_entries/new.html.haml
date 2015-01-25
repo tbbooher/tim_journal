@@ -1,5 +1,14 @@
-%h1 New journal_entry
 
-= render 'form'
 
-= link_to 'Back', journal_entries_path
+- title "Journal Entry"
+- if @last_entry
+  %h2 Last Entry
+  .well
+    %p
+      %b Description:
+    = @last_entry.description
+    %p
+      %b Health Statement:
+      = @last_entry.health_statement
+
+= render :partial => "form"

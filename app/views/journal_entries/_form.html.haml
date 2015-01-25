@@ -1,6 +1,51 @@
 = simple_form_for @journal_entry, :html => {class: 'form-horizontal', id: 'journal_entry_form'} do |f|
   = f.input :entry_date, as: :date, hint: ''
   = f.input :description, as: :text
+  .control-group.text.optional
+    %label.text.optional.control-label{for: "journal_entry_description"} Next Action Lists
+    .controls
+      %ul#tab.nav.nav-pills
+        %li.active
+          %a{href: "#work", "data-toggle" => "pill"} At Work
+        %li
+          %a{href: "#home", "data-toggle" => "pill"} At Home
+        %li
+          %a{href: "#home_pc", "data-toggle" => "pill"} At Home PC
+        %li
+          %a{href: "#someday_maybe", "data-toggle" => "pill"} Someday/Maybe
+        %li
+          %a{href: "#blog_post_ideas", "data-toggle" => "pill"} Blog Ideas
+        %li
+          %a{href: "#friends", "data-toggle" => "pill"} Friends
+        %li
+          %a{href: "#networking", "data-toggle" => "pill"} Networking
+        %li
+          %a{href: "#consulting", "data-toggle" => "pill"} Consulting
+        %li
+          %a{href: "#to_read", "data-toggle" => "pill"} To Read
+        %li
+          %a{href: "#goals", "data-toggle" => "pill"} Goals
+      .tab-content
+        #work.tab-pane.active
+          = f.input_field :at_work, as: :text, style: 'height:500px'
+        #home.tab-pane
+          = f.input_field :at_home, as: :text, style: 'height:500px'
+        #home_pc.tab-pane
+          = f.input_field :at_home_pc, as: :text, style: 'height:500px'
+        #someday_maybe.tab-pane
+          = f.input_field :someday_maybe, as: :text, style: 'height:500px'
+        #blog_post_ideas.tab-pane
+          = f.input_field :blog_post_ideas, as: :text, style: 'height:500px'
+        #friends.tab-pane
+          = f.input_field :friends, as: :text, style: 'height:500px'
+        #networking.tab-pane
+          = f.input_field :networking, as: :text, style: 'height:500px'
+        #consulting.tab-pane
+          = f.input_field :consulting, as: :text, style: 'height:500px'
+        #to_read.tab-pane
+          = f.input_field :to_read, as: :text, style: 'height:500px'
+        #goals.tab-pane
+          = f.input_field :goals, as: :text, style: 'height:500px'
   = f.input :memory_verse, as: :text
   = f.input :purity, as: :range, input_html: {min: 1, max: 5, step: 0.25}, label: "Purity (high is pure)"
   = f.input :fitness, as: :range, input_html: {min: 1, max: 5, step: 0.25}
@@ -19,6 +64,17 @@
   = f.input :problem_attempted, as: :boolean
   = f.input :problem_solved, as: :boolean  
   = f.input :workout_done, as: :text, input_html: {style: 'height:100px;'}
+  - # time to put in exertions
+  - # simple_fields_for(record_name, record_object = nil, options = {}, &block)
+  .control-group.text.optional
+    %label.text.optional.control-label{for: "journal_entry_description"} Exercises
+    .controls
+      = f.simple_fields_for :exertions do |builder|
+        = render 'exertion_fields', b: builder
+      %p
+        = link_to_add_fields "Add exercise", f, :exertions
+
+
   = f.input :problem_of_the_day, as: :text, label: "Technical Work Done", input_html: {style: 'height:100px;'}
 
   .form-actions

@@ -1,81 +1,93 @@
-%p#notice= notice
+- model_class = JournalEntry
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
 
 %p
-  %b Entry date:
+  %strong= model_class.human_attribute_name(:entry_date) + ':'
+  %br
   = @journal_entry.entry_date
 %p
-  %b Description:
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
   = @journal_entry.description
 %p
-  %b Purity:
+  %strong= model_class.human_attribute_name(:purity) + ':'
+  %br
   = @journal_entry.purity
 %p
-  %b Lack of discipline:
+  %strong= model_class.human_attribute_name(:lack_of_discipline) + ':'
+  %br
   = @journal_entry.lack_of_discipline
 %p
-  %b Fitness:
+  %strong= model_class.human_attribute_name(:fitness) + ':'
+  %br
   = @journal_entry.fitness
 %p
-  %b Devotional:
+  %strong= model_class.human_attribute_name(:devotional) + ':'
+  %br
   = @journal_entry.devotional
 %p
-  %b Chrissy:
+  %strong= model_class.human_attribute_name(:chrissy) + ':'
+  %br
   = @journal_entry.chrissy
 %p
-  %b Relational:
+  %strong= model_class.human_attribute_name(:relational) + ':'
+  %br
   = @journal_entry.relational
 %p
-  %b Discipline:
+  %strong= model_class.human_attribute_name(:discipline) + ':'
+  %br
   = @journal_entry.discipline
 %p
-  %b Facepicking:
+  %strong= model_class.human_attribute_name(:facepicking) + ':'
+  %br
   = @journal_entry.facepicking
 %p
-  %b Stress:
+  %strong= model_class.human_attribute_name(:stress) + ':'
+  %br
   = @journal_entry.stress
 %p
-  %b Sick:
+  %strong= model_class.human_attribute_name(:sick) + ':'
+  %br
   = @journal_entry.sick
 %p
-  %b Flossed:
+  %strong= model_class.human_attribute_name(:flossed) + ':'
+  %br
   = @journal_entry.flossed
 %p
-  %b Workout:
+  %strong= model_class.human_attribute_name(:workout) + ':'
+  %br
   = @journal_entry.workout
 %p
-  %b Health statement:
+  %strong= model_class.human_attribute_name(:health_statement) + ':'
+  %br
   = @journal_entry.health_statement
 %p
-  %b To do:
+  %strong= model_class.human_attribute_name(:to_do) + ':'
+  %br
   = @journal_entry.to_do
 %p
-  %b Memory verse:
+  %strong= model_class.human_attribute_name(:memory_verse) + ':'
+  %br
   = @journal_entry.memory_verse
 %p
-  %b Friends in focus:
+  %strong= model_class.human_attribute_name(:friends_in_focus) + ':'
+  %br
   = @journal_entry.friends_in_focus
 %p
-  %b Problem of the day:
+  %strong= model_class.human_attribute_name(:problem_of_the_day) + ':'
+  %br
   = @journal_entry.problem_of_the_day
 %p
-  %b Problem attempted:
+  %strong= model_class.human_attribute_name(:problem_attempted) + ':'
+  %br
   = @journal_entry.problem_attempted
 %p
-  %b Problem solved:
+  %strong= model_class.human_attribute_name(:problem_solved) + ':'
+  %br
   = @journal_entry.problem_solved
-%p
-  %b Created at:
-  = @journal_entry.created_at
-%p
-  %b Updated at:
-  = @journal_entry.updated_at
-%p
-  %b Friends:
-  = @journal_entry.friends
-%p
-  %b Workout done:
-  = @journal_entry.workout_done
 
-= link_to 'Edit', edit_journal_entry_path(@journal_entry)
-\|
-= link_to 'Back', journal_entries_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), journal_entries_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_journal_entry_path(@journal_entry), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), journal_entry_path(@journal_entry), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

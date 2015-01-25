@@ -1,69 +1,37 @@
-%h1 Listing journal_entries
+- title "Journal Entries"
 
-%table
+%ul.breadcrumb
+  %li
+    = link_to 'new', new_journal_entry_path
+    %span.divider /
+  %li
+    = link_to 'monthly report', month_report_path(Date.today.strftime('%b-%Y'))
+    %span.divider /
+  %li
+    = link_to 'frequency report', frequency_report_path
+    %span.divider /
+  %li
+    = link_to 'calendar report', calendar_report_path
+    %span.divider /
+  %li.active index
+
+= paginate @journal_entries
+
+%table.table.table-striped
   %thead
     %tr
-      %th Entry date
+      %th Date
       %th Description
-      %th Purity
-      %th Lack of discipline
-      %th Fitness
-      %th Devotional
-      %th Chrissy
-      %th Relational
-      %th Discipline
-      %th Facepicking
-      %th Stress
-      %th Sick
-      %th Flossed
-      %th Workout
-      %th Health statement
-      %th To do
-      %th Memory verse
-      %th Friends in focus
-      %th Problem of the day
-      %th Problem attempted
-      %th Problem solved
-      %th Created at
-      %th Updated at
-      %th Friends
-      %th Workout done
-      %th
-      %th
-      %th
-      
+      %th Actions
   %tbody
     - @journal_entries.each do |journal_entry|
       %tr
-        %td= journal_entry.entry_date
-        %td= journal_entry.description
-        %td= journal_entry.purity
-        %td= journal_entry.lack_of_discipline
-        %td= journal_entry.fitness
-        %td= journal_entry.devotional
-        %td= journal_entry.chrissy
-        %td= journal_entry.relational
-        %td= journal_entry.discipline
-        %td= journal_entry.facepicking
-        %td= journal_entry.stress
-        %td= journal_entry.sick
-        %td= journal_entry.flossed
-        %td= journal_entry.workout
-        %td= journal_entry.health_statement
-        %td= journal_entry.to_do
-        %td= journal_entry.memory_verse
-        %td= journal_entry.friends_in_focus
-        %td= journal_entry.problem_of_the_day
-        %td= journal_entry.problem_attempted
-        %td= journal_entry.problem_solved
-        %td= journal_entry.created_at
-        %td= journal_entry.updated_at
-        %td= journal_entry.friends
-        %td= journal_entry.workout_done
-        %td= link_to 'Show', journal_entry
-        %td= link_to 'Edit', edit_journal_entry_path(journal_entry)
-        %td= link_to 'Destroy', journal_entry, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to journal_entry.entry_date, edit_journal_entry_path(journal_entry)
+        %td= truncate(journal_entry.description, length: 100) if journal_entry.description
+        %td
+          = link_to 'edit', edit_journal_entry_path(journal_entry), :class => 'btn btn-mini'
+          = link_to 'destroy', journal_entry_path(journal_entry), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-%br
+= paginate @journal_entries
 
-= link_to 'New Journal entry', new_journal_entry_path
+

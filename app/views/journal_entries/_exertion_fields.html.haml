@@ -1,0 +1,9 @@
+%fieldset{style: "padding-bottom:10px;"}
+  =# b.collection_select :exercise_id, Exercise.all, :id, :name
+  = b.input_field :exercise_name, label: "Exercise", data: {provide: "typeahead", source: Exercise.all.map(&:name)}, autocomplete: "off"
+  = b.input_field :weight, placeholder: "weight", class: "span2"
+  = b.input_field :reps, placeholder: "reps", class: "span2"
+  = b.input_field :duration, placeholder: "time", class: "span2"
+  = b.input_field :distance, placeholder: "distance", class: "span2"
+  = b.input_field :_destroy, as: :hidden
+  = link_to "remove", '#', class: "remove_fields btn"

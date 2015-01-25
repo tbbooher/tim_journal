@@ -1,0 +1,18 @@
+- title "Monthly Report for #{@month_string}"
+
+%ul.breadcrumb
+  %li
+    = link_to 'new', new_journal_entry_path
+    %span.divider /
+  %li.active
+    monthly report
+    %span.divider /
+  %li
+    = link_to 'calendar report', calendar_report_path
+    %span.divider /
+  %li
+    = link_to 'frequency report', frequency_report_path
+    %span.divider /
+  %li= link_to 'index', journal_entries_path
+
+#monthly_report{data: { month_string: @month_string }}

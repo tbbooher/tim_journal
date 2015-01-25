@@ -1,0 +1,18 @@
+- title "Victory Report for the last #{@months} months"
+
+%ul.breadcrumb
+  %li
+    = link_to 'new', new_journal_entry_path
+    %span.divider /
+  %li
+    = link_to 'monthly report', month_report_path(Date.today.strftime('%b-%Y'))
+    %span.divider /
+  %li
+    = link_to 'calendar report', calendar_report_path
+    %span.divider /
+  %li.active
+    frequency report
+    %span.divider /
+  %li= link_to 'index', journal_entries_path
+
+#journal_entries_report{data: { months: @months }}
