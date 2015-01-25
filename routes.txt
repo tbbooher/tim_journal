@@ -1,0 +1,23 @@
+            Prefix Verb   URI Pattern                         Controller#Action
+   journal_entries GET    /journal_entries(.:format)          journal_entries#index
+                   POST   /journal_entries(.:format)          journal_entries#create
+ new_journal_entry GET    /journal_entries/new(.:format)      journal_entries#new
+edit_journal_entry GET    /journal_entries/:id/edit(.:format) journal_entries#edit
+     journal_entry GET    /journal_entries/:id(.:format)      journal_entries#show
+                   PATCH  /journal_entries/:id(.:format)      journal_entries#update
+                   PUT    /journal_entries/:id(.:format)      journal_entries#update
+                   DELETE /journal_entries/:id(.:format)      journal_entries#destroy
+             users GET    /users(.:format)                    users#index
+                   POST   /users(.:format)                    users#create
+          new_user GET    /users/new(.:format)                users#new
+         edit_user GET    /users/:id/edit(.:format)           users#edit
+              user GET    /users/:id(.:format)                users#show
+                   PATCH  /users/:id(.:format)                users#update
+                   PUT    /users/:id(.:format)                users#update
+                   DELETE /users/:id(.:format)                users#destroy
+              root GET    /                                   visitors#index
+                   GET    /auth/:provider/callback(.:format)  sessions#create
+            signin GET    /signin(.:format)                   sessions#new
+           signout GET    /signout(.:format)                  sessions#destroy
+      auth_failure GET    /auth/failure(.:format)             sessions#failure
+              page GET    /pages/*id                          high_voltage/pages#show
