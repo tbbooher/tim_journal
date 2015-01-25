@@ -144,6 +144,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.2)
     jwt (1.2.1)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.9.3)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -270,6 +273,8 @@ GEM
       websocket (~> 1.0)
     sexp_processor (4.4.5)
     shellany (0.0.1)
+    simple_calendar (1.1.9)
+      rails (>= 3.0)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -337,6 +342,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   launchy
   omniauth
   omniauth-google-oauth2
@@ -351,6 +357,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_calendar (~> 1.1.0)
   simple_form
   spring
   spring-commands-rspec

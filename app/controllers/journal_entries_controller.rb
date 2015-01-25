@@ -1,7 +1,7 @@
 class JournalEntriesController < ApplicationController
   before_action :set_journal_entry, only: [:show, :edit, :update, :destroy]
   before_action :only_tim
-  respond_to :js, :html, :json
+  # respond_to :js, :html, :json
 
 # GET /journal_entries
 # GET /journal_entries.json
@@ -20,18 +20,6 @@ class JournalEntriesController < ApplicationController
     @last_entry = JournalEntry.last
     if @last_entry
       @journal_entry.memory_verse = @last_entry.memory_verse
-      # @journal_entry.to_do = @last_entry.to_do
-      @journal_entry.friends = @last_entry.friends
-      @journal_entry.at_work = @last_entry.at_work
-      @journal_entry.at_home_pc = @last_entry.at_home_pc
-      @journal_entry.at_home = @last_entry.at_home
-      @journal_entry.at_work = @last_entry.at_work
-      @journal_entry.blog_post_ideas = @last_entry.blog_post_ideas
-      @journal_entry.someday_maybe = @last_entry.someday_maybe
-      @journal_entry.networking = @last_entry.networking
-      @journal_entry.consulting = @last_entry.consulting
-      @journal_entry.to_read = @last_entry.to_read
-      @journal_entry.goals = @last_entry.goals
     end
   end
 
